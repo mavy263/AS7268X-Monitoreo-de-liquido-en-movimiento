@@ -113,15 +113,11 @@ def update(frame):
                     max_d = max(np.max(np.abs(diferencia)), 5)
                     ax2.set_ylim(-max_d * 1.2, max_d * 1.2)
                     
-                    # Textos y Semáforo
-                    color_txt = "red" if indice_alteracion > UMBRAL_ALERTA else ("orange" if indice_alteracion > UMBRAL_CONGELACION else "green")
-                    text_indice.set_text(f"Índice: {indice_alteracion:.1f}")
-                    text_indice.set_color(color_txt)
-                    
         except Exception:
             pass
 
     return bar_actual, bar_ref, bar_diff
 
 ani = animation.FuncAnimation(fig, update, interval=100, blit=False, cache_frame_data=False)
+
 plt.show()
